@@ -1,2 +1,0 @@
-ubuntu-precise:
-  buildpack: "https://github.com/pkgr/heroku-buildpack-ruby.git#precise"
