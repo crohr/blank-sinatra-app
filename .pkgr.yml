@@ -1,3 +1,5 @@
 targets:
   debian-7:
     runner: upstart-1.5
+  ubuntu-12.04:
+    runner: sysv-lsb-3.1
