@@ -3,3 +3,4 @@ targets:
   ubuntu-12.04:
   centos-6:
   ubuntu-14.04:
+notifications: false
