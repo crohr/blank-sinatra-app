@@ -3,3 +3,4 @@ targets:
   ubuntu-12.04:
   centos-6:
   ubuntu-14.04:
+buildpack: https://github.com/pkgr/heroku-buildpack-ruby.git#universal-staging
