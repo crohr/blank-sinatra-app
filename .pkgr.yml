@@ -4,9 +4,9 @@ targets:
   centos-6: false
   ubuntu-14.04: true
 env:
-  - HELLO=world
+  - "HELLO=world"
 before:
-  - echo "HELLO: $HELLO"
+  - 'echo "HELLO: $HELLO"'
 services:
   - redis
   - postgres
