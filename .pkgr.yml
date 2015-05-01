@@ -1,6 +1,7 @@
 targets:
-  debian-7:
-  ubuntu-12.04:
+  debian-7: true
+  ubuntu-12.04: true
+  debian-8: true
   centos-6: false
   ubuntu-14.04: true
 env:
