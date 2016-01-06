@@ -1,4 +1,4 @@
-buildpack: https://github.com/pkgr/heroku-buildpack-ruby#universal-141
+#buildpack: https://github.com/pkgr/heroku-buildpack-ruby#universal-141
 targets:
   debian-7: true
   ubuntu-12.04: true
