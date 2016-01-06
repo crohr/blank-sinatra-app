@@ -5,6 +5,7 @@ targets:
   debian-8: true
   centos-6: false
   ubuntu-14.04: true
+  fedora-20: true
 env:
   - "HELLO=world"
 before:
