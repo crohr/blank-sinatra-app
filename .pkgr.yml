@@ -8,7 +8,8 @@ targets:
 env:
   - "HELLO=world"
 before:
-  - 'echo "HELLO: $HELLO"'
+  - 'echo "HELLO STDOUT: $HELLO"'
+  - 'echo "HELLO STDERR: $HELLO" >&2'
 services:
   - redis
   - postgres
