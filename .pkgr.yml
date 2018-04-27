@@ -1,3 +1,4 @@
+buildpack: https://github.com/pkgr/heroku-buildpack-ruby#v164-2
 targets:
   # debian-7: true
   # debian-8: true
