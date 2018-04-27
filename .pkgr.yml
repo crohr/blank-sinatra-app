@@ -5,6 +5,7 @@ targets:
   ubuntu-12.04: true
   ubuntu-14.04: true
   ubuntu-16.04: true
+  ubuntu-18.04: true
   centos-7: true
 env:
   - "HELLO=world"
