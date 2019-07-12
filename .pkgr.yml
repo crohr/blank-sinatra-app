@@ -1,4 +1,4 @@
-buildpack: https://github.com/pkgr/heroku-buildpack-ruby#v183-1
+buildpack: https://github.com/pkgr/heroku-buildpack-ruby#v199-1
 targets:
   debian-10: true
 env:
