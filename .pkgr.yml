@@ -3,6 +3,7 @@ targets:
   debian-7: true
   debian-8: true
   debian-9: true
+  debian-10: true
   ubuntu-12.04: true
   ubuntu-14.04: true
   ubuntu-16.04: true
