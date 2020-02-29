@@ -1,0 +1,10 @@
+name: Package
+on: [push]
+
+jobs:
+  build:
+    name: Debian 10
+    runs-on: ubuntu-latest
+    steps:
+      - name: pkgr
+        run: docker run --rm -it -v $(pwd):/app pkgr/debian:10 package .
