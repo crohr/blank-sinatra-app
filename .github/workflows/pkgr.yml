@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pkgr
-        run: docker run --rm -it -v $(pwd):/app pkgr/debian:10 package .
+        run: docker run --rm -v $(pwd):/app pkgr/debian:10 package .
