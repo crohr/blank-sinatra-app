@@ -10,6 +10,7 @@ targets:
   ubuntu-18.04: true
   centos-6: true
   centos-7: true
+  centos-8: true
 env:
   - "HELLO=world"
 before:
