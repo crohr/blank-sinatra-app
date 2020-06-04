@@ -1,17 +1,5 @@
-buildpack: https://github.com/pkgr/heroku-buildpack-ruby#v183-1
 targets:
-  debian-7: true
-  debian-8: true
-  debian-9: true
-  debian-10: true
-  ubuntu-12.04: true
-  ubuntu-14.04: true
-  ubuntu-16.04: true
-  ubuntu-18.04: true
   ubuntu-20.04: true
-  centos-6: true
-  centos-7: true
-  centos-8: true
 env:
   - "HELLO=world"
 before:
