@@ -10,6 +10,7 @@ targets:
   ubuntu-16.04: true
   ubuntu-18.04: true
   ubuntu-20.04: true
+  ubuntu-22.04: true
   centos-6: true
   centos-7: true
   centos-8: true
