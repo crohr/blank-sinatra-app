@@ -1,11 +1,8 @@
 targets:
-  debian-7: true
   debian-8: true
   debian-9: true
   debian-10: true
   debian-11: true
-  ubuntu-12.04: true
-  ubuntu-14.04: true
   ubuntu-16.04: true
   ubuntu-18.04: true
   ubuntu-20.04: true
@@ -17,7 +14,6 @@ env:
 before:
   - 'echo "HELLO STDOUT: $HELLO"'
   - 'echo "HELLO STDERR: $HELLO" >&2'
-  - node --version
 services:
   - redis
   - postgres
