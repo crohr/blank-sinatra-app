@@ -1,5 +1,6 @@
 targets:
   centos-9: true
+  debian-12: true
 env:
   - "HELLO=world"
 before:
