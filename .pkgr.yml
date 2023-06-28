@@ -1,14 +1,5 @@
 targets:
-  debian-8: true
-  debian-9: true
-  debian-10: true
-  debian-11: true
-  ubuntu-16.04: true
-  ubuntu-18.04: true
-  ubuntu-20.04: true
-  centos-6: true
-  centos-7: true
-  centos-8: true
+  centos-9: true
 env:
   - "HELLO=world"
 before:
