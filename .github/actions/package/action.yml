@@ -29,18 +29,25 @@ outputs:
 runs:
   using: "composite"
   steps:
+    - name: Setup
+      shell: bash
+      id: setup
+      run: |
+        workspace=$(mktemp -d)
+        mkdir -p $workspace/cache $workspace/output
+        echo "workspace=$workspace" >> $GITHUB_OUTPUT
+
     - name: Cache
       uses: actions/cache@v4
       with:
-        path: /tmp/cache
+        path: ${{ steps.setup.outputs.workspace }}/cache
         key: pkgr-${{ inputs.cache_prefix }}-${{ inputs.target }}-${{ inputs.pkgr_version }}
 
     - name: Package
       shell: bash
       id: package
       run: |
-        workspace=$(mktemp -d)
-        mkdir -p $workspace/cache $workspace/output
+        workspace=${{ steps.setup.outputs.workspace }}
 
         docker run --rm \
           -v $GITHUB_WORKSPACE:/pkgr/app \
