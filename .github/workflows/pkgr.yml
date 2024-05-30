@@ -22,13 +22,13 @@ jobs:
           - sles:15
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/package
+      - uses: pkgr/action/package@v1
         id: package
         with:
           target: ${{ matrix.target }}
           version: '1.0.0'
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.package.outputs.package_name }}
           path: ${{ steps.package.outputs.package_path }}
