@@ -36,7 +36,8 @@ runs:
       shell: bash
       id: setup
       run: |
-        workspace=$(mktemp -d)
+        workspace=/tmp/pkgr
+        rm -rf $workspace
         mkdir -p $workspace/cache $workspace/output
         echo "workspace=$workspace" >> $GITHUB_OUTPUT
 
