@@ -22,6 +22,9 @@ inputs:
     default: 'v1'
 
 outputs:
+  workspace:
+    description: "Workspace directory"
+    value: ${{ steps.setup.outputs.workspace }}
   package:
     description: "Package file path"
     value: ${{ steps.package.outputs.package }}
