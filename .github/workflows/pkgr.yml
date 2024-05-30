@@ -6,8 +6,8 @@ jobs:
     name: Debian 10
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - uses: ../actions/package@v1
         with:
-          path: app
-      - name: pkgr
-        run: ls -al $GITHUB_WORKSPACE && docker run --rm -v $GITHUB_WORKSPACE/app:/app pkgr/debian:10 package .
+          target: debian:12
+          version: 1.0.0

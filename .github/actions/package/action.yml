@@ -1,0 +1,56 @@
+name: 'pkgr/package'
+description: 'Package your application as DEB or RPM'
+inputs:
+  target:
+    description: 'Distribution to target'
+    required: true
+  name:
+    description: 'Name of the package'
+    required: true
+    default: ${{ github.repository }}
+  version:
+    description: 'Version of the package'
+    required: true
+    default: '0.0.0'
+  pkgr_version:
+    description: 'Version of pkgr'
+    required: true
+    default: 'master'
+  cache_prefix:
+    description: 'Prefix for the cache'
+    required: true
+    default: 'v1'
+
+outputs:
+  package:
+    description: "Package file path"
+    value: ${{ steps.package.outputs.package }}
+=
+runs:
+  using: "composite"
+  steps:
+    - name: Cache
+      uses: actions/cache@v4
+      with:
+        path: /tmp/cache
+        key: pkgr-${{ inputs.cache_prefix }}-${{ inputs.target }}-${{ inputs.pkgr_version }}
+
+    - name: Package
+      shell: bash
+      id: package
+      run: |
+        workspace=$(mktemp -d)
+        mkdir -p $workspace/cache $workspace/output
+
+        docker run --rm \
+          -v $GITHUB_WORKSPACE:/pkgr/app \
+          -v $workspace/cache:/pkgr/cache \
+          -v $workspace/output:/pkgr/output \
+          ghcr.io/crohr/pkgr/${{ inputs.target }}-${{ inputs.pkgr_version }} \
+          --name "${{ inputs.name }}" --version "${{ inputs.version }}"
+
+        if [ -f $workspace/output/*.deb ]; then
+          echo "package=$(ls $workspace/output/*.deb)" >> $GITHUB_OUTPUT
+        elif [ -f $workspace/output/*.rpm ]; then
+          echo "package=$(ls $workspace/output/*.rpm)" >> $GITHUB_OUTPUT
+        fi
