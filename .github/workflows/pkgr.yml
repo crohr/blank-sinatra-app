@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/package@v1
+      - uses: ./.github/actions/package
         with:
           target: debian:12
           version: 1.0.0
