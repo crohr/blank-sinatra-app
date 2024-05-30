@@ -25,7 +25,7 @@ outputs:
   package:
     description: "Package file path"
     value: ${{ steps.package.outputs.package }}
-=
+
 runs:
   using: "composite"
   steps:
