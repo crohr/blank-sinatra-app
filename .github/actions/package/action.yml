@@ -25,9 +25,15 @@ outputs:
   workspace:
     description: "Workspace directory"
     value: ${{ steps.setup.outputs.workspace }}
-  package:
+  package_path:
     description: "Package file path"
-    value: ${{ steps.package.outputs.package }}
+    value: ${{ steps.package.outputs.package_path }}
+  package_type:
+    description: "Package type"
+    value: ${{ steps.package.outputs.package_type }}
+  package_name:
+    description: "Package name"
+    value: ${{ steps.package.outputs.package_name }}
 
 runs:
   using: "composite"
@@ -60,8 +66,13 @@ runs:
           ghcr.io/crohr/pkgr/${{ inputs.target }}-${{ inputs.pkgr_version }} \
           --name "${{ inputs.name }}" --version "${{ inputs.version }}"
 
+        package_path=""
         if [ -f $workspace/output/*.deb ]; then
-          echo "package=$(ls $workspace/output/*.deb)" >> $GITHUB_OUTPUT
+          package_path=$(ls $workspace/output/*.deb)
         elif [ -f $workspace/output/*.rpm ]; then
-          echo "package=$(ls $workspace/output/*.rpm)" >> $GITHUB_OUTPUT
+          package_path=$(ls $workspace/output/*.rpm)
         fi
+        echo "package_path=$package_path" >> $GITHUB_OUTPUT
+        echo "package_type=${package_path##*.}" >> $GITHUB_OUTPUT
+        echo "package_name=${package_path##*/}" >> $GITHUB_OUTPUT
+
