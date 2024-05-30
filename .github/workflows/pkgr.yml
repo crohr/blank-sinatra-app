@@ -23,6 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/package
+        id: package
         with:
           target: ${{ matrix.target }}
           version: '1.0.0'
