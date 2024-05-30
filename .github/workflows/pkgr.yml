@@ -26,3 +26,8 @@ jobs:
         with:
           target: ${{ matrix.target }}
           version: '1.0.0'
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: pkgr-${{ matrix.target }}
+          path: ${{ steps.package.outputs.package }}
