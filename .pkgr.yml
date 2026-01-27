@@ -11,7 +11,7 @@ targets:
   ubuntu-22.04: true
   ubuntu-24.04: true
   # sles-12: true
-  # sles-15: true
+  sles-15: true
 env:
   - "HELLO=world"
 before:
