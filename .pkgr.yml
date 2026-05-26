@@ -1,6 +1,7 @@
 targets:
   # centos-7: true
   centos-8: true
+  centos-10: true
   # centos-9: true
   # debian-10: true
   debian-11: true
@@ -10,6 +11,7 @@ targets:
   ubuntu-20.04: true
   ubuntu-22.04: true
   ubuntu-24.04: true
+  ubuntu-26.04: true
   # sles-12: true
   sles-15: true
 env:
