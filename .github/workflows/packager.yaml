@@ -22,7 +22,9 @@ jobs:
       fail-fast: false
       matrix:
         target:
-          - debian:11
+          # - debian:11
+          - el:10
+          - ubuntu:26.04
         #   - debian:12
         #   - debian:13
         #   - ubuntu:20.04
@@ -32,7 +34,7 @@ jobs:
         #   - el:9
         #   - sles:15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Package
