@@ -39,19 +39,18 @@ jobs:
         with:
           fetch-depth: 0
       - name: Package
-        uses: pkgr/action/package@84f73e25c79dbc5c2bcfb996e9b96e88a15aef9c
+        uses: pkgr/action/package@a64182b7720173343d573894bb70107e64af7c41
         id: package
         with:
           target: ${{ matrix.target }}
           version: 0.1.0
-          pkgr_version: 7a9a69d8736b90ff1af918dd1e4b84a5372df5a9
-          # Keep this stable while changing the app commit to test toolchain restoration.
-          cache_prefix: local-buildcurl-e2e
+          pkgr_version: c87a5d00a3a7c4c0887161c8000cc7df8734ebed
+          cache_prefix: local-buildcurl-final-e2e
           debug: true
           env: |
             DATABASE_URL=postgres://app:p4ssw0rd@127.0.0.1:5432/app
       - name: Publish
-        uses: pkgr/action/publish@84f73e25c79dbc5c2bcfb996e9b96e88a15aef9c
+        uses: pkgr/action/publish@a64182b7720173343d573894bb70107e64af7c41
         with:
           target: ${{ matrix.target }}
           token: ${{ secrets.PACKAGER_PUBLISH_TOKEN }}
