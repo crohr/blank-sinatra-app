@@ -39,7 +39,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Package
-        uses: pkgr/action/package@main
+        uses: pkgr/action/package@v1
         id: package
         with:
           target: ${{ matrix.target }}
@@ -48,7 +48,7 @@ jobs:
           env: |
             DATABASE_URL=postgres://app:p4ssw0rd@127.0.0.1:5432/app
       - name: Publish
-        uses: pkgr/action/publish@main
+        uses: pkgr/action/publish@v1
         with:
           target: ${{ matrix.target }}
           token: ${{ secrets.PACKAGER_PUBLISH_TOKEN }}
